@@ -1,0 +1,34 @@
+{
+    "manifest_version": 3,
+    "name": "Help Me DG!",
+    "description": "赤信号みんなで出せば怖くない",
+    "version": "1.0",
+    "action": {
+        "default_icon": "*.png",
+        "default_title": "",
+        "default_popup": "*.html"
+    },
+    "content_scripts": [
+        {
+            "matches": [
+                "<all_urls>"
+            ],
+            "js": [
+                "src/content_script.bundle.js"
+            ]
+        }
+    ],
+    "permissions": [
+        "storage",
+        "tabs",
+        "activeTab"
+    ],
+    "background": {
+        "servece_worker": [
+            "src/background.bundle.js"
+        ]
+    },
+    "web_accessible_resources": [
+        "images/*"
+    ]
+}
