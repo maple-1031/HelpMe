@@ -3,6 +3,9 @@
     "name": "Help Me DG!",
     "description": "赤信号みんなで出せば怖くない",
     "version": "1.0",
+    "content_security_policy": {
+        "extension_pages": "script-src 'self'; object-src 'self'"
+    },
     "action": {
         "default_icon": "*.png",
         "default_title": "",
@@ -21,14 +24,12 @@
     "permissions": [
         "storage",
         "tabs",
-        "activeTab"
+        "activeTab",
+        "serial"
     ],
     "background": {
         "servece_worker": [
-            "src/background.bundle.js"
+            "src/background.js"
         ]
-    },
-    "web_accessible_resources": [
-        "images/*"
-    ]
+    }
 }
