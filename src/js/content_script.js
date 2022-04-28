@@ -3,8 +3,30 @@ import ReactDOM from "react-dom";
 import { ChakraProvider } from "@chakra-ui/react"
 //import 'bootstrap/dist/css/bootstrap.min.css';
 
+let loadDetector = document.getElementsByTagName("main")[0];
+let observer = new MutationObserver(records => {
+    let url = location.href.split("/");
+    let team = url.pop();
+    url = url.join("/");
+    team = team.split("?")[0];
+
+    if (url == "https://f2.catk.jp/#/team" && !(document.getElementById("init-btn"))) {
+        addInitBtn(team);
+    }
+})
+
+observer.observe(loadDetector, {
+    attributes: true,
+    childList: true,
+    subtree: true
+})
+
+function addInitBtn(team) {
+    document.createElement("div")
+}
+
 document.onclick = function () {
-    onConnectButtonClick();
+    //onConnectButtonClick();
 }
 /*
 var stringReceived = '';
