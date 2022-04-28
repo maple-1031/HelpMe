@@ -21,8 +21,15 @@ observer.observe(loadDetector, {
     subtree: true
 })
 
+document.onload = async () => {
+    console.log(location.href);
+}
+
 function addInitBtn(team) {
-    document.createElement("div")
+    let root_element = document.getElementsByTagName("team");
+    const initBtn = <h1>Init Button</h1>;
+    const root = ReactDOM.createRoot(root_element);
+    root.render(initBtn);
 }
 
 document.onclick = function () {
