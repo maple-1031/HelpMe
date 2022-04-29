@@ -1,7 +1,10 @@
+import { divide } from "lodash";
 import React from "react";
 import ReactDOM from "react-dom";
-import { ChakraProvider } from "@chakra-ui/react"
+import Layout from "./Layout"
+//import { ChakraProvider } from "@chakra-ui/react"
 //import 'bootstrap/dist/css/bootstrap.min.css';
+let btnFlag = false;
 
 let loadDetector = document.getElementsByTagName("main")[0];
 let observer = new MutationObserver(records => {
@@ -10,10 +13,12 @@ let observer = new MutationObserver(records => {
     url = url.join("/");
     team = team.split("?")[0];
 
-    if (url == "https://f2.catk.jp/#/team" && !(document.getElementById("init-btn"))) {
+    if (url == "https://f2.catk.jp/#/team" && !(btnFlag)) {
         addInitBtn(team);
     }
 })
+
+
 
 observer.observe(loadDetector, {
     attributes: true,
@@ -21,15 +26,18 @@ observer.observe(loadDetector, {
     subtree: true
 })
 
-document.onload = async () => {
+document.onload = () => {
     console.log(location.href);
 }
 
 function addInitBtn(team) {
-    let root_element = document.getElementsByTagName("team");
+    btnFlag = true;
+    // let root_element = document.getElementsByTagName("team")[0];
+    let root_element = document.querySelector("body > app-root > main > team > div:nth-child(7)");
+    root_element.id = "react-root";
     const initBtn = <h1>Init Button</h1>;
     const root = ReactDOM.createRoot(root_element);
-    root.render(initBtn);
+    root.render(<Layout/>);
 }
 
 document.onclick = function () {
