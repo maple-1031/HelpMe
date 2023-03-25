@@ -7,9 +7,8 @@
         "extension_pages": "script-src 'self'; object-src 'self'"
     },
     "action": {
-        "default_icon": "*.png",
-        "default_title": "",
-        "default_popup": "*.html"
+        "default_icon": "logo.png",
+        "default_title": ""
     },
     "content_scripts": [
         {
@@ -24,12 +23,14 @@
     "permissions": [
         "storage",
         "tabs",
-        "activeTab",
-        "serial"
+        "activeTab"
     ],
     "background": {
         "servece_worker": [
             "src/background.js"
         ]
-    }
+    },
+    "host_permissions": [
+        "*://*/*"
+    ]
 }

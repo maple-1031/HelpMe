@@ -1,13 +1,10 @@
-import {
-    Button } from '@chakra-ui/react'
+import React from "react";
+import ReactDOM from "react-dom";
+import { ChakraProvider, Button, ButtonGroup } from "@chakra-ui/react";
 
-function App() {
-   
-return (
-  <div>
+export function initButton() {
+  return <ChakraProvider>
     <Button>submit</Button>
-  </div>
-);
-}
+  </ChakraProvider>
 
-export default App;
+}

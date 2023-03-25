@@ -35,6 +35,8 @@
     "@emotion/react": "^11.9.0",
     "@emotion/styled": "^11.8.1",
     "babel-loader": "^8.2.5",
-    "framer-motion": "^6.3.3"
+    "framer-motion": "^6.3.3",
+    "hard-source-webpack-plugin": "^0.13.1",
+    "node-fetch": "^2.6.9"
   }
 }
